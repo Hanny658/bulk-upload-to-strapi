@@ -27,7 +27,7 @@ def upload_to_strapi(file_path, endpoint, api_key):
             if pd.isna(row[columns[0]]):
                 continue
 
-            # Create JSON data
+            # Create JSON data and request payload
             json_data = {
                 col: str(convert_to_serializable(row[col])) if not pd.isna(row[col]) else None
                 for col in columns
@@ -73,7 +73,7 @@ def start_upload():
 
 # Create the GUI
 root = tk.Tk()
-root.title("Strapi Excel Uploader")
+root.title("Strapi Excel Bulk Uploader (Free of plugins!)")
 
 tk.Label(root, text="Excel File:").grid(row=0, column=0, padx=10, pady=5, sticky="e")
 file_entry = tk.Entry(root, width=40)
