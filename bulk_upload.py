@@ -29,7 +29,7 @@ def upload_to_strapi(file_path, endpoint, api_key):
 
             # Create JSON data
             json_data = {
-                col: convert_to_serializable(row[col]) if not pd.isna(row[col]) else None
+                col: str(convert_to_serializable(row[col])) if not pd.isna(row[col]) else None
                 for col in columns
             }
 
